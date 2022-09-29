@@ -4,6 +4,7 @@ const Companies = require("../models/Companies");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
+  console.log("holi");
   try {
     Companies.find()
       .exec()
