@@ -4,7 +4,6 @@ const Companies = require("../models/Companies");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  console.log("holi");
   try {
     Companies.find()
       .exec()
@@ -52,7 +51,7 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    Companies.findOneAndDelete(req.params.id)
+    Companies.findOneAndDelete({ _id: req.params.id })
       .exec()
       .then(() => res.sendStatus(204));
   } catch (error) {
